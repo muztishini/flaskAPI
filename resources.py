@@ -1,6 +1,5 @@
 from flask_restful import Resource
 from flask import request
-# from datetime import datetime
 from models import Task, db
 
 
@@ -33,6 +32,7 @@ class TaskList(Resource):
 
 
 class TaskApi(Resource):
+
     def get(self, task_id):
         task = db.session.query(Task).get(task_id)
         if task:
@@ -42,7 +42,7 @@ class TaskApi(Resource):
                     'updated_at': str(task.updated_at)}
         else:
             return {'message': 'Task not found'}
-
+    
     def put(self, task_id):
         task = db.session.query(Task).get(task_id)
         if task:

@@ -10,8 +10,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:12345@localhost/ta
 db.init_app(app)
 api = Api(app)
 
-api.add_resource(TaskList, '/tasks', endpoint='tasks')
-api.add_resource(TaskApi, '/task/<int:task_id>', endpoint='task')
+api.add_resource(TaskList, '/tasks')
+api.add_resource(TaskApi, '/tasks/<int:task_id>')
 
 if __name__ == "__main__":
     # with app.app_context():
