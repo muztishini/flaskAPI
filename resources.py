@@ -29,7 +29,7 @@ class TaskApi(Resource):
         if task:
             return {'id': task.id, 'description': task.description}
         else:
-            return {"message": "Task not found"}
+            return {'message': 'Task not found'}
 
     def put(self, task_id):
         task = db.session.query(Task).get(task_id)
